@@ -1,14 +1,21 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Nav = () => {
+const Nav = ({ details, onLogOut }) => {
+  // console.log({ account });
   return (
     <div className="flex justify-between items-center px-4  bg-black">
       <p className="text-white">Projet_Online_Shop</p>
       <div className="flex gap-4">
-        <NavLink className={"p-4 text-slate-400"} to={"/login"}>
-          Login
-        </NavLink>
+        {!details ? (
+          <NavLink className={"p-4 text-slate-400"} to={"/login"}>
+            Login
+          </NavLink>
+        ) : (
+          <button className={"p-4 text-slate-400"} onClick={onLogOut}>
+            LogOut
+          </button>
+        )}
         <NavLink className={"p-4 text-slate-400"} to={"/register"}>
           Register
         </NavLink>

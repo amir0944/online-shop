@@ -8,6 +8,7 @@ import { ShopContextProvider } from "./context/shopContext";
 import Login from "./pages/login/Login";
 import Admin from "./pages/admin/Admin";
 import Register from "./pages/register/Register";
+import Nav from "./components/Nav";
 const App = () => {
   const [products, setProducts] = useState([
     {
@@ -71,7 +72,14 @@ const App = () => {
     <div>
       <ShopContextProvider>
         <Routes>
-          <Route path="/" element={<LayOut />}>
+          <Route
+            path="/"
+            element={
+              <LayOut>
+                <Nav />
+              </LayOut>
+            }
+          >
             <Route index element={<Shop products={products} />} />
             <Route path="/cart" element={<Cart products={products} />} />
             <Route
